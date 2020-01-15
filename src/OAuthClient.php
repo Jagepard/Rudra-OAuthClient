@@ -20,8 +20,7 @@ class OAuthClient
     protected $providers;
 
     /**
-     * OAuthClient constructor.
-     * @param  ProviderInterface  ...$providers
+     * @param Provider\ProviderInterface ...$providers
      */
     public function __construct(ProviderInterface ...$providers)
     {
@@ -31,8 +30,8 @@ class OAuthClient
     }
 
     /**
-     * @param  string  $key
-     * @return ProviderInterface
+     * @param string $key
+     * @return Provider\ProviderInterface
      */
     public function provider(string $key): ProviderInterface
     {
