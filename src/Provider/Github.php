@@ -13,8 +13,7 @@ namespace OAuthClient\Provider;
 class Github extends AbstractProvider
 {
     /**
-     * Github constructor.
-     * @param  array  $config
+     * @param array $config
      */
     public function __construct(array $config)
     {
@@ -28,7 +27,8 @@ class Github extends AbstractProvider
     }
 
     /**
-     * @param  string|null  $code
+     * @param string $code
+     * @return void
      */
     public function authenticate(string $code = null): void
     {

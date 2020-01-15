@@ -5,8 +5,7 @@ namespace OAuthClient\Provider;
 class Yandex extends AbstractProvider
 {
     /**
-     * Yandex constructor.
-     * @param  array  $config
+     * @param array $config
      */
     public function __construct(array $config)
     {
@@ -20,7 +19,8 @@ class Yandex extends AbstractProvider
     }
 
     /**
-     * @param  string|null  $code
+     * @param string $code
+     * @return void
      */
     public function authenticate(string $code = null): void
     {

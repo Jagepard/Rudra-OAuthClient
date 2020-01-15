@@ -26,8 +26,7 @@ abstract class AbstractProvider implements ProviderInterface
     protected $urls;
 
     /**
-     * AbstractProvider constructor.
-     * @param  array  $config
+     * @param array $config
      */
     public function __construct(array $config)
     {
@@ -40,9 +39,9 @@ abstract class AbstractProvider implements ProviderInterface
     }
 
     /**
-     * @param  array  $params
-     * @param  array  $headers
-     * @return mixed
+     * @param array $params
+     * @param array $headers
+     * @return array
      */
     protected function request(array $params = [], array $headers = []): array
     {
