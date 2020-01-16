@@ -2,7 +2,7 @@
 
 /**
  * @author    : Jagepard <jagepard@yandex.ru">
- * @copyright Copyright (c) 2019, Jagepard
+ * @copyright Copyright (c) 2020, Jagepard
  * @license   https://mit-license.org/ MIT
  */
 

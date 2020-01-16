@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 /**
  * @author    : Jagepard <jagepard@yandex.ru">
- * @copyright Copyright (c) 2019, Jagepard
+ * @copyright Copyright (c) 2020, Jagepard
  * @license   https://mit-license.org/ MIT
  */
 
@@ -19,11 +19,11 @@ abstract class AbstractProvider implements ProviderInterface
     /**
      * @var array
      */
-    protected $config;
-    /**
+    protected $urls;
+        /**
      * @var array
      */
-    protected $urls;
+    protected $config;
 
     /**
      * @param array $config
