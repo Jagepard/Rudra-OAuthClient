@@ -20,9 +20,9 @@ abstract class AbstractProvider implements ProviderInterface
      * @var array
      */
     protected $urls;
-        /**
-         * @var array
-         */
+    /**
+     * @var array
+     */
     protected $config;
 
     /**
