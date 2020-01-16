@@ -1,5 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
+/**
+ * @author    : Jagepard <jagepard@yandex.ru">
+ * @copyright Copyright (c) 2020, Jagepard
+ * @license   https://mit-license.org/ MIT
+ */
+
 namespace OAuthClient\Provider;
 
 class Yandex extends AbstractProvider
