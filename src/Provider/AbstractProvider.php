@@ -75,13 +75,17 @@ abstract class AbstractProvider implements ProviderInterface
         return json_decode($content, true);
     }
 
-    public function url(): string
+    public function url($extraOptions = []): string
     {
-        $params = [
-            'response_type' => 'code',
-            'client_id'     => $this->config['client_id'],
-            'display'       => 'popup',
-        ];
+        $params = array_merge(
+            $extraOptions,
+            [
+                'response_type' => 'code',
+                'client_id'     => $this->config['client_id'],
+                'display'       => 'popup',
+                'redirect_uri'  => $this->config['redirect_uri'],
+            ]
+        );
 
         return $this->urls['auth'].'?'.urldecode(http_build_query($params));
     }
