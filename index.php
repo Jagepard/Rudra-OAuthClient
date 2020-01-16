@@ -7,22 +7,32 @@ $oauthClient = new OAuthClient\OAuthClient(
         [
             'client_id'     => 'your client_id',
             'client_secret' => 'your client_secret',
-            'redirect_uri'  => 'your redirect_uri',
+            'redirect_uri'  => 'yoor redirect_uri',
         ]
     ),
     new OAuthClient\Provider\Github(
         [
             'client_id'     => 'your client_id',
             'client_secret' => 'your client_secret',
-            'redirect_uri'  => 'your redirect_uri',
+            'redirect_uri'  => 'yoor redirect_uri',
+        ]
+    ),
+    new OAuthClient\Provider\Google(
+        [
+            'client_id'     => 'your client_id',
+            'client_secret' => 'your client_secret',
+            'redirect_uri'  => 'yoor redirect_uri',
         ]
     )
 );
+
+$googleExtraOptions = [
+    'scope' => 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile'
+];
 
 if (!isset($_GET['code'])) {
     printf("<p><a href=\"%s\">Authentication</a>", $oauthClient->provider(\OAuthClient\Provider\Github::class)->url());
 } else {
     $oauthClient->provider(\OAuthClient\Provider\Github::class)->authenticate($_GET['code']);
-    print_r($oauthClient->provider(\OAuthClient\Provider\Github::class)->user());
+    var_dump($oauthClient->provider(\OAuthClient\Provider\Github::class)->user());
 }
-
