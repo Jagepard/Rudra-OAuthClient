@@ -33,8 +33,9 @@ $oauthClient = new OAuthClient\OAuthClient(
     )
 );
 
-$googleExtraOptions = [
-    'scope' => 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile'
+$extraOptions = [
+    'google'   => ['scope' => 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile'],
+    'facebook' => ['scope' => 'email,user_birthday']
 ];
 
 if (!isset($_GET['code'])) {
