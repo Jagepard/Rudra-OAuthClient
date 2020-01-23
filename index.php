@@ -23,6 +23,13 @@ $oauthClient = new OAuthClient\OAuthClient(
             'client_secret' => 'your client_secret',
             'redirect_uri'  => 'yoor redirect_uri',
         ]
+    ),
+    new OAuthClient\Provider\Facebook(
+        [
+            'client_id'     => 'your client_id',
+            'client_secret' => 'your client_secret',
+            'redirect_uri'  => 'yoor redirect_uri',
+        ]
     )
 );
 
@@ -31,8 +38,8 @@ $googleExtraOptions = [
 ];
 
 if (!isset($_GET['code'])) {
-    printf("<p><a href=\"%s\">Authentication</a>", $oauthClient->provider(\OAuthClient\Provider\Github::class)->url());
+    printf("<p><a href=\"%s\">Authentication</a>", $oauthClient->provider(\OAuthClient\Provider\Facebook::class)->url());
 } else {
-    $oauthClient->provider(\OAuthClient\Provider\Github::class)->authenticate($_GET['code']);
-    var_dump($oauthClient->provider(\OAuthClient\Provider\Github::class)->user());
+    $oauthClient->provider(\OAuthClient\Provider\Facebook::class)->authenticate($_GET['code']);
+    var_dump($oauthClient->provider(\OAuthClient\Provider\Facebook::class)->user());
 }
