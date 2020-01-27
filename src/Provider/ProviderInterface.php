@@ -11,8 +11,7 @@ namespace OAuthClient\Provider;
 interface ProviderInterface
 {
     /**
-     * @param string $code     *
-     * @return void
+     * @param string $code
      */
     public function authenticate(string $code = null): void;
 }

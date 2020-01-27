@@ -19,6 +19,7 @@ class Google extends AbstractProvider
     {
         parent::__construct($config);
 
+        $this->name = 'google';
         $this->urls = [
             'auth'         => 'https://accounts.google.com/o/oauth2/auth',
             'access_token' => 'https://accounts.google.com/o/oauth2/token',

@@ -19,6 +19,7 @@ class Github extends AbstractProvider
     {
         parent::__construct($config);
 
+        $this->name = 'github';
         $this->urls = [
             'auth'         => 'https://github.com/login/oauth/authorize',
             'access_token' => 'https://github.com/login/oauth/access_token',
