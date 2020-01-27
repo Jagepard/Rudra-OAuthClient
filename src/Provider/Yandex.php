@@ -19,6 +19,7 @@ class Yandex extends AbstractProvider
     {
         parent::__construct($config);
 
+        $this->name = 'yandex';
         $this->urls = [
             'auth'         => 'https://oauth.yandex.ru/authorize',
             'access_token' => 'https://oauth.yandex.ru/token',
@@ -50,5 +51,5 @@ class Yandex extends AbstractProvider
                 $this->user               = $this->request();
             }
         }
-    }
+    }    
 }
