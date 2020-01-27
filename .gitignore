@@ -2,3 +2,4 @@
 /src/ignored/
 .vscode
 nginx config/sites-available
+composer.lock
