@@ -20,12 +20,12 @@ class OAuthClient
     protected $providers;
 
     /**
-     * @param Provider\ProviderInterface ...$providers
+     * @param array
      */
-    public function __construct(ProviderInterface ...$providers)
+    public function __construct(array $providers)
     {
         foreach ($providers as $provider) {
-            $this->providers[get_class($provider)] = $provider;
+            $this->providers[$provider->getName()] = $provider;
         }
     }
 
