@@ -20,6 +20,10 @@ abstract class AbstractProvider implements ProviderInterface
      * @var array
      */
     protected $urls;
+    /**
+     * @var string
+     */
+    protected $name;
         /**
      * @var array
      */
@@ -41,9 +45,9 @@ abstract class AbstractProvider implements ProviderInterface
     /**
      * @param array $params
      * @param array $headers
-     * @return array
+     * @param boolean $json
      */
-    protected function request(array $params = [], array $headers = []): array
+    protected function request(array $params = [], array $headers = [], $json = true)
     {
         $curlHeaders = ['Accept: application/json'];
         $curlHeaders = array_merge($curlHeaders, $headers);
@@ -59,6 +63,7 @@ abstract class AbstractProvider implements ProviderInterface
                 [
                     'client_id'     => $this->config['client_id'],
                     'client_secret' => $this->config['client_secret'],
+                    'redirect_uri'  => $this->config['redirect_uri'],
                 ]
             );
 
@@ -72,7 +77,11 @@ abstract class AbstractProvider implements ProviderInterface
         $content = curl_exec($curl);
         curl_close($curl);
 
-        return json_decode($content, true);
+        if ($json) {
+            $content = json_decode($content, true);
+        }
+
+        return $content;
     }
 
     public function url($extraOptions = []): string
@@ -88,5 +97,13 @@ abstract class AbstractProvider implements ProviderInterface
         );
 
         return $this->urls['auth'].'?'.urldecode(http_build_query($params));
+    }
+
+    /**
+     * @return  string
+     */ 
+    public function getName(): string
+    {
+        return $this->name;
     }
 }
