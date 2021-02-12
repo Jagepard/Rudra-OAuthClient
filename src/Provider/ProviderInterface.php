@@ -5,7 +5,7 @@
  * @license   https://mit-license.org/ MIT
  */
 
-namespace OAuthClient\Provider;
+namespace Rudra\OAuthClient\Provider;
 
 interface ProviderInterface
 {
