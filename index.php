@@ -10,19 +10,19 @@ use OAuthClient\Provider\Yandex;
 
 $providers = [
     new Yandex([
-        'client_id'     => 'your_client_id',
-        'client_secret' => 'your_client_secret',
-        'redirect_uri'  => 'your_redirect_uri'
-    ]),    
+        'client_id'     => 'e3b9c11ee34d4a129f73cb87a9bfa1a0',
+        'client_secret' => 'a38ecb63d43d4674a10b0c825450b82d',
+        'redirect_uri'  => 'https://auth.jagepard.ru?provider=yandex',
+    ]),
     new Github([
-        'client_id'     => 'your_client_id',
-        'client_secret' => 'your_client_secret',
-        'redirect_uri'  => 'your_redirect_uri'
-    ]),    
+        'client_id'     => 'dba33dc28d96b911858f',
+        'client_secret' => '4f1dd3f08e87f6163fa8d5030ab4c1ba8e20cc4b',
+        'redirect_uri'  => 'https://auth.jagepard.ru?provider=github',
+    ]),
     new Google([
-        'client_id'     => 'your_client_id',
-        'client_secret' => 'your_client_secret',
-        'redirect_uri'  => 'your_redirect_uri'
+        'client_id'     => '970354010809-vmlpko7hdq397fhpmhvgqmnvb18d8gdf.apps.googleusercontent.com',
+        'client_secret' => 'qdZbFUbAPTjMbOgRjfDouoOu',
+        'redirect_uri'  => 'https://auth.jagepard.ru?provider=google',
     ])
 ];
 
@@ -35,13 +35,14 @@ $extraOptions = [
     'facebook' => ['scope' => 'email']
 ];
 
-function handle(OAuthClient $oauthClient, $getRequest = null, ProviderInterface $provider, $extraOptions = []) {
-    if (!isset($getRequest['code'])) {
+function handle(OAuthClient $oauthClient, $request, ProviderInterface $provider, $extraOptions = [])
+{
+    if (!isset($request['code'])) {
         printf("<p><a href=\"%s\">Authentication: {$provider->getName()}</a>", $oauthClient->provider($provider->getName())->url($extraOptions));
     } else {
-        if (isset($getRequest['provider']) && $getRequest['provider'] === $provider->getName()) {
-            $oauthClient->provider($provider->getName())->authenticate($getRequest['code']);
-            var_dump($oauthClient->provider($provider->getName())->user());
+        if (isset($request['provider']) && $request['provider'] === $provider->getName()) {
+            $oauthClient->provider($provider->getName())->authenticate($request['code']);
+            !d($oauthClient->provider($provider->getName())->user());
         }
     }
 }
