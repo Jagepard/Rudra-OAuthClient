@@ -2,11 +2,11 @@
 
 require_once './vendor/autoload.php';
 
-use OAuthClient\OAuthClient;
-use OAuthClient\Provider\Github;
-use OAuthClient\Provider\Google;
-use OAuthClient\Provider\ProviderInterface;
-use OAuthClient\Provider\Yandex;
+use Rudra\OAuthClient\OAuthClient;
+use Rudra\OAuthClient\Provider\Github;
+use Rudra\OAuthClient\Provider\Google;
+use Rudra\OAuthClient\Provider\ProviderInterface;
+use Rudra\OAuthClient\Provider\Yandex;
 
 $providers = [
     new Yandex([
@@ -28,7 +28,7 @@ $providers = [
 
 $oauthClient = new OAuthClient($providers);
 
-(new Whoops\Run)->appendHandler(new Whoops\Handler\PrettyPageHandler)->register();
+//(new Whoops\Run)->appendHandler(new Whoops\Handler\PrettyPageHandler)->register();
 
 $extraOptions = [
     'google'   => ['scope' => 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile'],
@@ -42,7 +42,7 @@ function handle(OAuthClient $oauthClient, $request, ProviderInterface $provider,
     } else {
         if (isset($request['provider']) && $request['provider'] === $provider->getName()) {
             $oauthClient->provider($provider->getName())->authenticate($request['code']);
-            !d($oauthClient->provider($provider->getName())->user());
+            var_dump($oauthClient->provider($provider->getName())->user());die;
         }
     }
 }

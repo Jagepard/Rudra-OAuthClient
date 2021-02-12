@@ -7,9 +7,9 @@ declare(strict_types=1);
  * @license   https://mit-license.org/ MIT
  */
 
-namespace OAuthClient;
+namespace Rudra\OAuthClient;
 
-use OAuthClient\Provider\ProviderInterface;
+use Rudra\OAuthClient\Provider\ProviderInterface;
 
 class OAuthClient
 {

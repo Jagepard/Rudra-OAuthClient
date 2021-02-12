@@ -7,7 +7,7 @@ declare(strict_types=1);
  * @license   https://mit-license.org/ MIT
  */
 
-namespace OAuthClient\Provider;
+namespace Rudra\OAuthClient\Provider;
 
 class Yandex extends AbstractProvider
 {
