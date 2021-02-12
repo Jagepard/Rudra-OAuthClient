@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 /**
  * @author    : Jagepard <jagepard@yandex.ru">
- * @copyright Copyright (c) 2020, Jagepard
  * @license   https://mit-license.org/ MIT
  */
 
@@ -12,26 +11,11 @@ namespace OAuthClient\Provider;
 
 abstract class AbstractProvider implements ProviderInterface
 {
-    /**
-     * @var array
-     */
-    protected $user;
-    /**
-     * @var array
-     */
-    protected $urls;
-    /**
-     * @var string
-     */
-    protected $name;
-        /**
-     * @var array
-     */
-    protected $config;
+    protected array $user;
+    protected array $urls;
+    protected string $name;
+    protected array $config;
 
-    /**
-     * @param array $config
-     */
     public function __construct(array $config)
     {
         $this->config = $config;
@@ -42,11 +26,6 @@ abstract class AbstractProvider implements ProviderInterface
         return $this->user;
     }
 
-    /**
-     * @param array $params
-     * @param array $headers
-     * @param boolean $json
-     */
     protected function request(array $params = [], array $headers = [], $json = true)
     {
         $curlHeaders = ['Accept: application/json'];
@@ -99,9 +78,6 @@ abstract class AbstractProvider implements ProviderInterface
         return $this->urls['auth'].'?'.urldecode(http_build_query($params));
     }
 
-    /**
-     * @return  string
-     */ 
     public function getName(): string
     {
         return $this->name;
