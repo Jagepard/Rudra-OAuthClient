@@ -1,8 +1,9 @@
 {
-  "name": "oauth/client",
+  "name": "rudra/oauth-client",
   "description": "oauth client",
   "type": "library",
   "keywords": [
+    "rudra",
     "oauth",
     "oauth-client"
   ],
@@ -19,15 +20,16 @@
     "email": "jagepard@yandex.ru"
   },
   "require": {
-    "php": ">=7.4",
-    "filp/whoops": "^2.2@dev"
+    "php": ">=7.4"
   },
   "autoload": {
     "psr-4": {
-      "OAuthClient\\": "src"
+      "Rudra\\OAuthClient\\": "src"
     }
   },
-  "require-dev": {
-    "kint-php/kint": "^3.3"
-  }
+    "minimum-stability": "dev",
+    "config"           : {
+        "optimize-autoloader": true,
+        "prefer-stable"      : true
+    }
 }
