@@ -20,7 +20,8 @@
     "email": "jagepard@yandex.ru"
   },
   "require": {
-    "php": ">=7.4"
+    "php": ">=7.4",
+    "rudra/docs": "dev-master"
   },
   "autoload": {
     "psr-4": {
