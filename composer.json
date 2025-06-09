@@ -18,8 +18,8 @@
   ],
     "support": {
         "email": "jagepard@yandex.ru",
-        "issues": "https://github.com/Jagepard/Rudra-EventDispatcher/issues",    
-        "source": "https://github.com/Jagepard/Rudra-EventDispatcher"    
+        "issues": "https://github.com/Jagepard/Rudra-OAuthClient/issues",    
+        "source": "https://github.com/Jagepard/Rudra-OAuthClient"    
     },
   "require": {
     "php": ">=8.3",
