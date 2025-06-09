@@ -16,21 +16,30 @@
       "role": "Developer"
     }
   ],
-  "support": {
-    "email": "jagepard@yandex.ru"
-  },
+    "support": {
+        "email": "jagepard@yandex.ru",
+        "issues": "https://github.com/Jagepard/Rudra-EventDispatcher/issues",    
+        "source": "https://github.com/Jagepard/Rudra-EventDispatcher"    
+    },
   "require": {
-    "php": ">=7.4",
-    "rudra/docs": "dev-master"
+    "php": ">=8.3",
+    "rudra/docs": "self.version"
   },
   "autoload": {
     "psr-4": {
       "Rudra\\OAuthClient\\": "src"
     }
   },
-    "minimum-stability": "dev",
-    "config"           : {
-        "optimize-autoloader": true,
-        "prefer-stable"      : true
-    }
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+      "optimize-autoloader": true,
+      "sort-packages": true,
+      "platform-check": false
+  },
+  "extra": {
+      "branch-alias": {
+          "dev-master": "1.0.x-dev"
+      }
+  }
 }
