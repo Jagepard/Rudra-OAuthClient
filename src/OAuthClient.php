@@ -15,6 +15,15 @@ class OAuthClient
 {
     protected array $providers;
 
+    /**
+     * Initializes the OAuthClient with an array of providers.
+     * Each provider is stored in the `$providers` array with its name as the key.
+     * -------------------------
+     * Инициализирует OAuthClient массивом провайдеров.
+     * Каждый провайдер сохраняется в массиве `$providers` с его именем в качестве ключа.
+     *
+     * @param  array $providers
+     */
     public function __construct(array $providers)
     {
         foreach ($providers as $provider) {
@@ -22,6 +31,17 @@ class OAuthClient
         }
     }
 
+    /**
+     * Retrieves a provider by its name.
+     * If the provider exists, it is returned; otherwise, an exception is thrown.
+     * -------------------------
+     * Извлекает провайдер по его имени.
+     * Если провайдер существует, он возвращается; в противном случае выбрасывается исключение.
+     *
+     * @param  string $key
+     * @return ProviderInterface
+     * @throws \InvalidArgumentException
+     */
     public function provider(string $key): ProviderInterface
     {
         if (array_key_exists($key, $this->providers)) {

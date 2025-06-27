@@ -16,16 +16,34 @@ abstract class AbstractProvider implements ProviderInterface
     protected string $name;
     protected array $config;
 
+    /**
+     * @param  array $config
+     */
     public function __construct(array $config)
     {
         $this->config = $config;
     }
 
+    /**
+     * @return array
+     */
     public function user(): array
     {
         return $this->user;
     }
 
+    /**
+     * Sends an HTTP request using cURL with optional parameters and headers.
+     * The method supports both GET and POST requests and can return the response as JSON or raw data.
+     * -------------------------
+     * Отправляет HTTP-запрос с использованием cURL с необязательными параметрами и заголовками.
+     * Метод поддерживает как GET, так и POST запросы и может возвращать ответ в формате JSON или в сыром виде.
+     * 
+     * @param  array   $params
+     * @param  array   $headers
+     * @param  boolean $json
+     * @return void
+     */
     protected function request(array $params = [], array $headers = [], $json = true)
     {
         $curlHeaders = ['Accept: application/json'];
@@ -63,6 +81,18 @@ abstract class AbstractProvider implements ProviderInterface
         return $content;
     }
 
+    /**
+     * Generates a URL for authentication with optional additional parameters.
+     * The method constructs a query string by merging default parameters with any extra options provided.
+     * The resulting URL is used for redirecting users to the authentication endpoint.
+     * -------------------------
+     * Генерирует URL для аутентификации с возможностью добавления дополнительных параметров.
+     * Метод создает строку запроса, объединяя параметры по умолчанию с любыми дополнительными опциями.
+     * Полученный URL используется для перенаправления пользователей на конечную точку аутентификации.
+     * 
+     * @param  array  $extraOptions
+     * @return string
+     */
     public function url($extraOptions = []): string
     {
         $params = array_merge(
@@ -78,6 +108,9 @@ abstract class AbstractProvider implements ProviderInterface
         return $this->urls['auth'].'?'.urldecode(http_build_query($params));
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
