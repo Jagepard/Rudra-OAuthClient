@@ -7,15 +7,15 @@
     "oauth",
     "oauth-client"
   ],
-  "license": "MIT",
+  "license": "MPL-2.0",
   "authors": [
-    {
-      "name": "Jagepard",
-      "email": "jagepard@yandex.ru",
-      "homepage": "https://jagepard.ru",
-      "role": "Developer"
-    }
-  ],
+        {
+            "name": "Korotkov Danila",
+            "email": "jagepard@yandex.ru",
+            "homepage": "https://jagepard.ru", 
+            "role": "Developer"
+        }
+    ],
     "support": {
         "email": "jagepard@yandex.ru",
         "issues": "https://github.com/Jagepard/Rudra-OAuthClient/issues",    
