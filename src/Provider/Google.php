@@ -16,11 +16,6 @@ class Google extends AbstractProvider
     /**
      * Initializes the Google authentication class with default configuration and URLs.
      * The constructor sets up the necessary endpoints for authentication and API access.
-     * -------------------------
-     * Инициализирует класс аутентификации Google с базовой конфигурацией и URL-адресами.
-     * Конструктор настраивает необходимые конечные точки для аутентификации и доступа к API.
-     *
-     * @param  array $config
      */
     public function __construct(array $config)
     {
@@ -38,15 +33,9 @@ class Google extends AbstractProvider
      * Authenticates the user using the provided authorization code.
      * The method exchanges the code for an access token and retrieves the user's information from the Google API.
      * If the access token is successfully obtained, the user's data is fetched and stored in the `$user` property.
-     * -------------------------
-     * Аутентифицирует пользователя с использованием предоставленного кода авторизации.
-     * Метод обменивает код на токен доступа и получает информацию о пользователе из API Google.
-     * Если токен доступа успешно получен, данные пользователя извлекаются и сохраняются в свойстве `$user`.
-     *
-     * @param  string|null
-     * @return void
      */
-    public function authenticate(string $code = null): void
+    #[\Override]
+    public function authenticate(?string $code = null): void
     {
         if (isset($code)) {
             $params = [
