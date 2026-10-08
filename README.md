@@ -1,7 +1,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/jagepard/rudra-oauthclient/badge)](https://www.codefactor.io/repository/github/jagepard/rudra-oauthclient)
 -----
 
-# OAuthClient | [API](https://github.com/Jagepard/Rudra-OAuthClient/blob/master/docs.md "Documentation API")
+# OAuthClient | [API](https://github.com/Jagepard/Rudra-OAuthClient/blob/master/docs.md 'Documentation API')
 
 A lightweight, extensible OAuth 2.0 client for the [Rudra Framework](https://github.com/Jagepard/Rudra). Follows the KISS principle: no unnecessary abstractions, no hidden magic — just a straightforward way to integrate social login.
 
@@ -21,9 +21,9 @@ In your Rudra application settings file (`setting.($env).yml`), define your prov
 oauth:
     yandex:
         class: Rudra\OAuthClient\Provider\Yandex
-        client_id: "your_client_id"
-        client_secret: "your_client_secret"
-        redirect_uri: "https://your-site.com/oauth?provider=yandex"
+        client_id: 'your_client_id'
+        client_secret: 'your_client_secret'
+        redirect_uri: 'https://your-site.com/oauth?provider=yandex'
 ```
 
 You can add as many providers as you need:
@@ -32,14 +32,14 @@ You can add as many providers as you need:
 oauth:
     yandex:
         class: Rudra\OAuthClient\Provider\Yandex
-        client_id: "yandex_id"
-        client_secret: "yandex_secret"
-        redirect_uri: "https://your-site.com/oauth?provider=yandex"
+        client_id: 'yandex_id'
+        client_secret: 'yandex_secret'
+        redirect_uri: 'https://your-site.com/oauth?provider=yandex'
     vk:
         class: Rudra\OAuthClient\Provider\VK
-        client_id: "vk_id"
-        client_secret: "vk_secret"
-        redirect_uri: "https://your-site.com/oauth?provider=vk"
+        client_id: 'vk_id'
+        client_secret: 'vk_secret'
+        redirect_uri: 'https://your-site.com/oauth?provider=vk'
 ```
 
 > 💡 **Note:** The `redirect_uri` must include the `provider` query parameter matching the config key (e.g., `?provider=yandex`). This is how the callback handler identifies which provider to use.
@@ -95,9 +95,9 @@ class OAuth
 
         $user = $user[0];
         session_regenerate_id(true);
-        Session::set(["token", md5($user['password'] . $user['email'] . Auth::getSessionHash())]);
-        Session::set(["user", $user]);
-        Redirect::run("admin/item");
+        Session::set(['token', md5($user['password'] . $user['email'] . Auth::getSessionHash())]);
+        Session::set(['user', $user]);
+        Redirect::run('admin/item');
     }
 }
 ```
